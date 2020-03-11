@@ -2,6 +2,7 @@
 
 ### Resources 
 - https://blog.miguelgrinberg.com/post/how-to-create-a-react--flask-project 
+- Team Google Drive: https://drive.google.com/drive/folders/1VrLuFihsqI3cWWvmMA8xs_sE6qZYkhZy?usp=sharing 
 
 
 ### Running the project 
