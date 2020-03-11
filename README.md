@@ -11,8 +11,10 @@ You can technically run either separately (i.e. to just test the api, or to work
 
 ### 1. Startup the API 
 > cd client/game-of-things-app 
+
 > yarn start_api 
 
 ### 2. Run the React App - do this in a seperate terminal window 
 > cd client/game-of-things-app
+
 > yarn start 
