@@ -20,7 +20,7 @@ You can technically run either separately (i.e. to just test the api, or to work
 
 
 ## Installing the project for the first time 
-> git clone 
+> git clone <repo>
 
 > cd api 
 
