@@ -21,12 +21,19 @@ You can technically run either separately (i.e. to just test the api, or to work
 
 ## Installing the project for the first time 
 > git clone 
+
 > cd api 
+
 > python3 -m venv venv
+
 > source venv/bin/activate
+
 > pip install flask python-dotenv
+
 > cd .. 
+
 > cd client/game-of-things-app 
+
 > yarn install 
 
 
