@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Home } from './pages/Home.js'
+import Home from './pages/Home.js'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -36,7 +36,7 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/">
-            <Home />
+            <Home roomCode={roomCode}/>
           </Route>
         </Switch>
       </div>

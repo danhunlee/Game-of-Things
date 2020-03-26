@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 class Home extends Component {
-    constructor() {
+    constructor(props) {
         super(props)
         this.state = {
         }
@@ -16,8 +16,14 @@ class Home extends Component {
     }
 
     render() {
-        <div>Home Page</div>
+        const { roomCode } = this.props
+        return(
+            <div class="HomePage" style={{ display: 'flex', flexDirection: 'column' }}>
+                <div>Home Page</div>
+                <div>This is your room code: {roomCode}</div>
+            </div>
+        );
     }
 }
 
-export default Home
+export default Home;

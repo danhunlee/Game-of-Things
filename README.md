@@ -40,3 +40,11 @@ You can technically run either separately (i.e. to just test the api, or to work
 ## Troubleshooting 
 If you don't have yarn installed go to a different directory and do a brew install yarn 
 > brew install yarn 
+
+
+## Client File Structure
+/assets - pictures and graphic assets
+/components - components used across the app 
+/css - styling files
+/pages - main pages used across site
+/shared - functions and classes to use. i.e. API calls, commonly used functions
