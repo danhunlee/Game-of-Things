@@ -19,7 +19,7 @@ class Home extends Component {
         const { roomCode } = this.props
         return(
             <div class="HomePage" style={{ display: 'flex', flexDirection: 'column' }}>
-                <div>Home Page</div>
+                <div>Home</div>
                 <div>This is your room code: {roomCode}</div>
             </div>
         );
