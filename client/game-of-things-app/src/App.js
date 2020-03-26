@@ -1,6 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import { Home } from './pages/Home.js'
 import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 function App() {
 
@@ -13,13 +19,28 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            {/* <li>
+              <Link to="/about">About</Link>
+            </li> */}
+          </ul>
+        </nav>
 
-        <p>Here is your room code {roomCode}</p>
-      </header>
-    </div>
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Switch>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
