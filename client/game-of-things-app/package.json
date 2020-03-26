@@ -15,8 +15,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "start_api": "cd api && venv/bin/flask run --no-debugger"
+    "eject": "react-scripts eject", 
+    "start_api": "cd ../../api && venv/bin/flask run --no-debugger"
   },
   "eslintConfig": {
     "extends": "react-app"
