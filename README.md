@@ -34,15 +34,20 @@ You can technically run either separately (i.e. to just test the api, or to work
 
 > cd client/game-of-things-app 
 
-> yarn install 
-
+> yarn add
 
 ## Troubleshooting 
 If you don't have yarn installed go to a different directory and do a brew install yarn 
 > brew install yarn 
 
 
-## Client File Structure
+## Client
+### Adding Dependencies 
+We use yarn instead of npm as a package manager. 
+Install dependencies: 
+> yarn add 
+
+### Client File Structure
 /assets - pictures and graphic assets
 /components - components used across the app 
 /css - styling files
