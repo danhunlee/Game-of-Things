@@ -36,3 +36,16 @@ def check_existing_room(room_code):
         return True
     else: 
         return False
+
+@app.route('/players', methods=['GET', 'POST'])
+def players():
+    if request.method == 'POST':
+        pass
+    elif request.method == 'GET':
+        return get_players(request.form['room_code'])
+
+def get_players(room_code):
+    if room_code in rooms: 
+        return rooms[room_code]['players']
+    else: 
+        return False
