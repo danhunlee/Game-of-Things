@@ -10,14 +10,6 @@ import {
 
 function App() {
 
-  const [ roomCode, setRoomCode ] = useState(0);
-
-  useEffect(() => {
-    fetch('/room').then(res => res.json()).then(data => {
-      setRoomCode(data.room_code);
-    });
-  }, []);
-
   return (
     <Router>
       <div>
@@ -36,7 +28,7 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/">
-            <Home roomCode={roomCode}/>
+            <Home />
           </Route>
         </Switch>
       </div>
