@@ -24,7 +24,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Game of Things</Link>
             </li>
             {/* <li>
               <Link to="/about">About</Link>
