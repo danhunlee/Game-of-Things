@@ -51,7 +51,7 @@ def check_existing_room(room_code):
     if room_code in rooms:
         return 'OK'
     else: 
-        return 'ERROR'
+        return 'False - room doesnt exist'
 
 #######
 # Players
@@ -69,7 +69,7 @@ def get_all_players(room_code):
     if room_code in rooms: 
         return rooms[room_code]['players']
     else: 
-        return 'ERROR' #TODO: implement error message
+        return 'ERROR - room doesnt exist'
 
 # TODO: need to handle duplicate name
 # TODO: handle is_host -> when creating player who has created a room
@@ -77,7 +77,7 @@ def create_player(room_code, player_name, is_host=False):
     try:
         rooms[room_code]['players'][player_name] = {'points': 0, 'is_host': is_host}
     except:
-        return 'ERROR'
+        return 'ERROR - creating player didnt work'
     return 'OK'
 
 # TODO: Handle removing host -> maybe transfer host to next player?
@@ -91,7 +91,7 @@ def remove_player(room_code, player_name):
             del rooms[room_code]['players'][player_name]
             return 'OK'
         except: 
-            return 'ERROR - couldnt remove player' #TODO: implement error message
+            return 'ERROR - couldnt remove player'
     else: 
         return 'ERROR - room doesnt exist'
         
