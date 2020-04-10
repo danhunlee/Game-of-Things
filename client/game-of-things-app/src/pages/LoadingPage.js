@@ -1,39 +1,47 @@
 import React, { Component } from 'react'
 
-class Loading extends Component{
+class LoadingPage extends Component{
   constructor(props){
     super(props)
     this.state={
-      player1: {
-          name: 'Jennifer',
-          color: 'pink',
-      },
-      player2: {
-          name: 'Mark',
-          color: 'blue',
-      },
+      players: [],
     };
   }
   
 
   componentDidMount() {
-      console.log('in loading')
+    console.log('in loading')
+    this.setState({
+      players: [
+        {
+          name: 'Jennifer',
+          color: 'pink',
+        },
+        {
+          name: 'Mark',
+          color: 'blue',
+        }
+      ]
+    })
+    
   }
 
   componentUnMount() {
 
   }
+
   render() {
       const { roomCode } = this.props
+
       return(
           <div class="LoadingPage">
               <div>Loading Page</div>
               <div>This is your room code: {roomCode}</div>
               <ul>
-                {this.state.players.name}
+                {this.state.players.map(p => <li>{p.name} - {p.color}</li>)}
               </ul>
           </div>
       )
   }
 }
-export default Loading;
+export default LoadingPage;
