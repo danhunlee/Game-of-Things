@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react'
 import Home from './pages/Home.js'
-import './App.css';
+import './App.css'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
-} from "react-router-dom";
+} from "react-router-dom"
 
 function App() {
-
-  const [ roomCode, setRoomCode ] = useState(0);
-
-  useEffect(() => {
-    fetch('/room').then(res => res.json()).then(data => {
-      setRoomCode(data.room_code);
-    });
-  }, []);
 
   return (
     <Router>
@@ -36,7 +28,7 @@ function App() {
             renders the first one that matches the current URL. */}
         <Switch>
           <Route path="/">
-            <Home roomCode={roomCode}/>
+            <Home />
           </Route>
         </Switch>
       </div>
