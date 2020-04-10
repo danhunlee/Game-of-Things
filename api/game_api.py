@@ -23,8 +23,21 @@ rooms = {
                 'points': 0,
                 'is_host': False
             },
+        },
+        'room': {
+            'max_players': 25
+        },
+        'game': {
+            'stage': 1, #TODO: implement stage system
+            'num_questions': 25,
+            'questions_theme': 'default', 
+            'current_question_num': 0
         }
     }
+}
+
+questions = {
+    
 }
 
 
@@ -73,6 +86,7 @@ def get_all_players(room_code):
 
 # TODO: need to handle duplicate name
 # TODO: handle is_host -> when creating player who has created a room
+# TODO: handle max players
 def create_player(room_code, player_name, is_host=False):
     try:
         rooms[room_code]['players'][player_name] = {'points': 0, 'is_host': is_host}
