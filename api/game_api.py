@@ -6,15 +6,31 @@ app = Flask(__name__)
 
 rooms = {
     'TEST': {
-        'players': [
-            {'name': 'JohnnyCash'},
-            {'name': 'Mary Ann'},
-            {'name': 'Booty'},
-            {'name': 'YEET'}
-        ]
+        'players': {
+            'JohnnyCash': {
+                'points': 0,
+                'is_host': True
+            },
+            'Mary Ann': {
+                'points': 0,
+                'is_host': False
+            },
+            'Booty': {
+                'points': 0,
+                'is_host': False
+            },
+            'YEET': {
+                'points': 0,
+                'is_host': False
+            },
+        }
     }
 }
 
+
+#######
+# Room
+#######
 @app.route('/room', methods=['GET', 'POST'])
 def room():
     if request.method == 'POST': 
@@ -33,19 +49,62 @@ def create_room():
 # checks if room exists -> true/false
 def check_existing_room(room_code):
     if room_code in rooms:
-        return True
+        return 'OK'
     else: 
-        return False
+        return 'ERROR'
 
-@app.route('/players', methods=['GET', 'POST'])
+#######
+# Players
+#######
+@app.route('/players', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def players():
-    if request.method == 'POST':
-        pass
+    if request.method == 'PUT':
+        return create_player(request.form['room_code'], request.form['player_name'])
     elif request.method == 'GET':
-        return get_players(request.form['room_code'])
+        return get_all_players(request.form['room_code'])
+    elif request.method == 'DELETE':
+        return remove_player(request.form['room_code'], request.form['player_name'])
 
-def get_players(room_code):
+def get_all_players(room_code):
     if room_code in rooms: 
         return rooms[room_code]['players']
     else: 
-        return False
+        return 'ERROR' #TODO: implement error message
+
+# TODO: need to handle duplicate name
+# TODO: handle is_host -> when creating player who has created a room
+def create_player(room_code, player_name, is_host=False):
+    try:
+        rooms[room_code]['players'][player_name] = {'points': 0, 'is_host': is_host}
+    except:
+        return 'ERROR'
+    return 'OK'
+
+# TODO: Handle removing host -> maybe transfer host to next player?
+def remove_player(room_code, player_name):
+    if rooms[room_code]: 
+        curr_player = None
+        try: 
+            curr_player = rooms[room_code]['players'][player_name]
+            if curr_player['is_host']:
+                change_host(room_code, player_name)
+            del rooms[room_code]['players'][player_name]
+            return 'OK'
+        except: 
+            return 'ERROR - couldnt remove player' #TODO: implement error message
+    else: 
+        return 'ERROR - room doesnt exist'
+        
+# TODO: change current host to new host
+def change_host(room_code, host_name, new_host_name='random'):
+    pass
+
+
+#######
+# Game
+#######
+@app.route('/game', methods=['GET', 'POST', 'PUT', 'DELETE'])
+def game():
+    pass
+
+
