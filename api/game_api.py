@@ -1,6 +1,6 @@
 import random
 import string
-from flask import Flask, request
+from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ rooms = {
 }
 
 questions = {
-    
+
 }
 
 
@@ -80,7 +80,13 @@ def players():
 
 def get_all_players(room_code):
     if room_code in rooms: 
-        return rooms[room_code]['players']
+        players = rooms[room_code]['players']
+        players_array = []
+        for player_name in players:
+            player = {'name': player_name}
+            player.update(players[player_name]) #adding player fields to dict
+            players_array.append(player)
+        return jsonify(players_array)
     else: 
         return 'ERROR - room doesnt exist'
 
