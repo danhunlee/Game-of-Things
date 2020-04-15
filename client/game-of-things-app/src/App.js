@@ -23,9 +23,9 @@ function App() {
       <div>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <Link to="/">Game of Things</Link>
-            </li>
+            </li> */}
             {/* <li>
               <Link to="/about">About</Link>
             </li> */}
